@@ -1,5 +1,6 @@
 export default function ToDoListController(ToDoService) {
   'ngInject';
+
   this.complete = '';
   this.removeItem = removeItem.bind(this);
   this.editItem = editItem.bind(this);
