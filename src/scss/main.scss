@@ -1,0 +1,55 @@
+@import '_variables';
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  background: #eeeeee;
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  border: none;
+  height: 90px;
+  width: 100%;
+  font-size: 64px;
+  line-height: 90px;
+  color: #777;
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+
+  > a {
+    text-decoration: none;
+    color: #777;
+    font-weight: 100;
+    letter-spacing: -2px;
+  }
+}
+
+.button {
+  background-color: $color-btn;
+  color: $color-btn-text;
+  border: 0;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+
+  &:hover {
+    transition: all 500ms linear;
+    background-color: $color-btn-hover;
+    cursor: pointer;
+  }
+}
+
+.error {
+  color: $color-error-text;
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+
+.hide-desktop {
+  @include respond-to('desktop') {
+    display: none;
+  }
+}

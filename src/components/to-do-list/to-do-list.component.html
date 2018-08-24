@@ -1,0 +1,32 @@
+<section>
+    <input
+            ng-if="$ctrl.toDoList.length"
+            class="todo__input todo__input--search"
+            type="text"
+            ng-model="$ctrl.search"
+            placeholder="Search todo" />
+    <ul>
+        <li class="todo__list"
+            ng-repeat="(key, value) in $ctrl.toDoList | orderBy:'order' | filter: { data: $ctrl.search } track by $index">
+            <div class="todo__view">
+                <button ng-click="$ctrl.doneItem(value.order)">
+                    {{ value.complete }}
+                </button>
+                {{ value.data }}
+                <button ng-click="$ctrl.removeItem(value.order)">x</button>
+            </div>
+            <div class="todo__edit">
+                <form ng-submit="$ctrl.editItem()">
+                    <input class="todo__input"
+                           ng-trim="false"
+                           ng-model="value.data" />
+                </form>
+            </div>
+        </li>
+    </ul>
+</section>
+<footer ng-show="$ctrl.toDoList.length">
+    <button>All</button>
+    <button>Completed</button>
+    <button>Uncompleted</button>
+</footer>

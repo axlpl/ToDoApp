@@ -1,0 +1,18 @@
+<section class="todo">
+    <form
+        name="form"
+        ng-submit="$ctrl.save(form.$valid)"
+        novalidate>
+        <input
+            class="todo__input"
+            type="text"
+            name="todo"
+            ng-model="$ctrl.todo"
+            placeholder="Write what you need to do?"
+            required
+            autofocus />
+        <button
+            class="hide-desktop button"
+            type="submit">Submit</button>
+    </form>
+</section>

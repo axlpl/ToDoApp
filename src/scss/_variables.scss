@@ -1,0 +1,25 @@
+//Main modules definitions
+$white: #fff;
+$grey-1: #777;
+$red-1: #c91218;
+$green: green;
+
+$color-btn: lighten($green, 20%);
+$color-btn-text: $white;
+$color-btn-hover: darken($green, 20%);
+
+$color-input: $grey-1;
+
+$color-error-text: $red-1;
+
+$breakpoints: (
+        'desktop':  ( min-width:  769px )
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+}

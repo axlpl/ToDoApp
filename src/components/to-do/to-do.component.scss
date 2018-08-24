@@ -1,0 +1,13 @@
+@import "_variables";
+
+.todo {
+  &__input {
+    border: 0;
+    outline: none;
+    height: 64px;
+    line-height: 64px;
+    font-size: 48px;
+    width: 100%;
+    padding: 0 10px;
+  }
+}
