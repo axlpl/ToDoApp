@@ -1,6 +1,106 @@
-.todo__input--search {
-  margin-top: 10px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 20px;
+@import "_variables";
+
+.todo {
+  &__input--search {
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+
+  &__wrapper {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__footer {
+    border-bottom: {
+      left-radius: 5px;
+      right-radius: 5px;
+    }
+    background: $color-footer;
+    border-top: 1px solid $color-footer-border;
+    padding: 20px;
+  }
+
+  &__list {
+    background: $color-list;
+    border-top: 1px solid $color-list-border;
+  }
+
+  &__view {
+    font-size: 48px;
+    position: relative;
+    line-height: 60px;
+  }
+
+  &__text {
+    padding-left: 70px;
+    padding-right: 55px;
+    word-wrap: break-word;
+  }
+
+  &__btn {
+    border: 0;
+    font-size: 20px;
+    border-bottom: 1px solid $color-todo-btn-border;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 10px;
+    color: $color-todo-btn;
+    background: $white;
+    outline: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $black;
+    }
+
+    &--active , &--active:hover {
+      border-bottom: 1px solid $color-todo-btn-border-active;
+      color: $color-todo-btn-active;
+    }
+  }
+
+  &__status {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    outline: none;
+    margin-left: 10px;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+    background: $white;
+    position: absolute;
+    top: 13px;
+
+    > svg {
+      display: none;
+      position: absolute;
+      left: 5px;
+      top: -7px;
+    }
+
+    &--active > svg {
+      display: block;
+    }
+
+    &:hover {
+      background: $grey-2;
+    }
+  }
+
+  &__remove {
+    border: 0;;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    background: $white;
+
+    > svg {
+      fill: $red-1;
+    }
+  }
 }

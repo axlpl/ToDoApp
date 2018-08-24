@@ -1,8 +1,11 @@
 //Main modules definitions
 $white: #fff;
 $grey-1: #777;
+$grey-2: #eeeeee;
 $red-1: #c91218;
+$blue: #315ea5;
 $green-1: #538239;
+$black: #000;
 
 $color-btn: $green-1;
 $color-btn-text: $white;
@@ -11,6 +14,18 @@ $color-btn-hover: darken($green-1, 5%);
 $color-input: $grey-1;
 
 $color-error-text: $red-1;
+
+$color-footer: $white;
+$color-footer-border: $grey-2;
+
+$color-list: $white;
+$color-list-border: $grey-2;
+
+$color-todo-btn: $grey-2;
+$color-todo-btn-border: $grey-2;
+$color-todo-btn-active: $blue;
+$color-todo-btn-border-active: $blue;
+
 
 $breakpoints: (
         'desktop':  ( min-width:  769px )

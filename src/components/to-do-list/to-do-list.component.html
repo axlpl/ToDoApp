@@ -5,17 +5,27 @@
             type="text"
             ng-model="$ctrl.search"
             placeholder="Search todo" />
-    <ul>
+    <ul class="todo__wrapper">
         <li class="todo__list"
             ng-repeat="(key, value) in $ctrl.toDoList | orderBy:'order' | filter: { data: $ctrl.search, complete: $ctrl.complete } track by $index">
             <div class="todo__view">
-                <button ng-click="$ctrl.doneItem(value.order)">
-                    {{ value.complete }}
+                <button class="todo__status"
+                        ng-class=" { 'todo__status--active': value.complete === 'done' } "
+                        ng-click="$ctrl.doneItem(value.order)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+                    </svg>
                 </button>
-                {{ value.data }}
-                <button ng-click="$ctrl.removeItem(value.order)">x</button>
+                <div class="todo__text">{{ value.data }}</div>
+                <button class="todo__remove"
+                        ng-click="$ctrl.removeItem(value.order)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+                    </svg>
+                </button>
             </div>
-            <div class="todo__edit">
+            <div class="todo__edit"
+                ng-if="value.canEdit === true">
                 <form ng-submit="$ctrl.editItem()">
                     <input class="todo__input"
                            ng-trim="false"
@@ -25,8 +35,21 @@
         </li>
     </ul>
 </section>
-<footer ng-show="$ctrl.toDoList.length">
-    <button ng-click="$ctrl.setComplete()">All</button>
-    <button ng-click="$ctrl.setComplete('done')">Completed</button>
-    <button ng-click="$ctrl.setComplete('none')">Uncompleted</button>
+<footer class="todo__footer"
+        ng-if="$ctrl.toDoList.length">
+    <button class="todo__btn"
+            ng-class=" { 'todo__btn--active': $ctrl.complete === '' } "
+            ng-click="$ctrl.setComplete()">
+        All
+    </button>
+    <button class="todo__btn"
+            ng-class=" { 'todo__btn--active': $ctrl.complete === 'done' } "
+            ng-click="$ctrl.setComplete('done')">
+        Completed
+    </button>
+    <button class="todo__btn"
+            ng-class=" { 'todo__btn--active': $ctrl.complete === 'none' } "
+            ng-click="$ctrl.setComplete('none')">
+        Uncompleted
+    </button>
 </footer>
