@@ -1,10 +1,11 @@
 export default function ToDoListController(ToDoService) {
   'ngInject';
-
+  this.complete = '';
   this.removeItem = removeItem.bind(this);
   this.editItem = editItem.bind(this);
   this.doneItem = doneItem.bind(this);
   this.updateList = updateList.bind(this);
+  this.setComplete = setComplete.bind(this);
 
   function removeItem(value) {
     const newList = this.toDoList
@@ -30,7 +31,12 @@ export default function ToDoListController(ToDoService) {
     ToDoService.edit(newList);
     this.updateList(newList);
   }
+
   function updateList(list) {
     this.toDoList = list;
+  }
+
+  function setComplete(state = '') {
+    this.complete = state;
   }
 }

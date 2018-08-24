@@ -7,7 +7,7 @@
             placeholder="Search todo" />
     <ul>
         <li class="todo__list"
-            ng-repeat="(key, value) in $ctrl.toDoList | orderBy:'order' | filter: { data: $ctrl.search } track by $index">
+            ng-repeat="(key, value) in $ctrl.toDoList | orderBy:'order' | filter: { data: $ctrl.search, complete: $ctrl.complete } track by $index">
             <div class="todo__view">
                 <button ng-click="$ctrl.doneItem(value.order)">
                     {{ value.complete }}
@@ -26,7 +26,7 @@
     </ul>
 </section>
 <footer ng-show="$ctrl.toDoList.length">
-    <button>All</button>
-    <button>Completed</button>
-    <button>Uncompleted</button>
+    <button ng-click="$ctrl.setComplete()">All</button>
+    <button ng-click="$ctrl.setComplete('done')">Completed</button>
+    <button ng-click="$ctrl.setComplete('none')">Uncompleted</button>
 </footer>

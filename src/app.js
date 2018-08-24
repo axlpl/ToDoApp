@@ -11,7 +11,6 @@ import {
 
 angular.module('myApp', [
     uiRouter,
-    ngMessages,
     Components
   ])
   .component('homePage', HomeComponent)

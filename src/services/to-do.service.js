@@ -9,7 +9,7 @@ export const ToDoService = function (DataStorageService) {
 
     this.add = (data) => {
         const dataArray = JSON.parse(DataStorageService.get(id)) || [];
-        dataArray.push({ data, order: dataArray.length, complete: 'undone' });
+        dataArray.push({ data, order: dataArray.length, complete: 'none' });
         DataStorageService.set(id, JSON.stringify(dataArray));
     };
 

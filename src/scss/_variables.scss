@@ -2,11 +2,11 @@
 $white: #fff;
 $grey-1: #777;
 $red-1: #c91218;
-$green: green;
+$green-1: #538239;
 
-$color-btn: lighten($green, 20%);
+$color-btn: $green-1;
 $color-btn-text: $white;
-$color-btn-hover: darken($green, 20%);
+$color-btn-hover: darken($green-1, 5%);
 
 $color-input: $grey-1;
 
